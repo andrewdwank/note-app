@@ -95,12 +95,25 @@
       transition: all 0.2s ease;
       position: relative;
       box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+
+      max-height: 150px;        /* adjust as needed */
+      overflow: hidden;         /* hide extra content */
+      transition: max-height 0.3s ease; /* smooth expansion */
     }
 
     .note-card:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 1000px;       /* or a big number to show all content */
+      overflow: visible;
+      z-index: 1;               /* ensure it’s above other cards */
     }
+
+    .note-card:focus-within {
+      max-height: 1000px;
+      overflow: visible;  
+    }
+
 
     .note-title {
       font-size: 1.25rem;
@@ -407,3 +420,28 @@
       header { flex-direction: column; gap: 1rem; }
       .notes-grid { grid-template-columns: 1fr; }
     }
+
+    /* For screens 450px and below */
+@media (max-width: 450px) {
+  .notes-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1rem; /* slightly smaller gap */
+  }
+
+  body {
+    font-size: 0.65rem; /* shrink font a bit */
+  }
+
+  .note-title {
+    font-size: 0.85 rem; /* smaller note title */
+  }
+
+  .note-content {
+    font-size: 0.65rem; /* smaller note content */
+  }
+
+  .add-note-btn, .theme-toggle-btn, .save-btn, .cancel-btn {
+    padding: 0.5rem 1rem; /* smaller buttons */
+    font-size: 0.65rem;
+  }
+}
