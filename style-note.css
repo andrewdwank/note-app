@@ -99,6 +99,8 @@
       max-height: 150px;        /* adjust as needed */
       overflow: hidden;         /* hide extra content */
       transition: max-height 0.3s ease; /* smooth expansion */
+
+      
     }
 
     .note-card:hover {
@@ -432,8 +434,12 @@
     font-size: 0.65rem; /* shrink font a bit */
   }
 
+  .note-card{
+    padding: 0.8rem;
+  }
+
   .note-title {
-    font-size: 0.85 rem; /* smaller note title */
+    font-size: 0.65rem; /* smaller note title */
   }
 
   .note-content {
